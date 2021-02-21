@@ -1,5 +1,7 @@
 # allow to use Host cuda functions in C/C++
-#DEF_INCLUDES = @CUDA_INCLUDES@
+DEF_INCLUDES = @CUDA_INCLUDES@
+ccminer_LDADD += -lcuda
+nvcc_ARCH += -gencode=arch=compute_30,code=\"sm_30,compute_30\"
 
 if WANT_JANSSON
 JANSSON_INCLUDES= -I$(top_srcdir)/compat/jansson
